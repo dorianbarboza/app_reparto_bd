@@ -58,13 +58,18 @@ id_DetallesServicioReparto int primary key auto_increment not null,
 ubicacionDestino_DetallesServicioReparto varchar(30),
 ubicacionFinal_DetallesServicioReparto varchar(30),
 mensajeDetalleDelPedido_DetallesServicioReparto varchar(100),
-calificacionRepartidor int
+calificacionRepartidor_DetallesServicioReparto int,
+comisionRepartidor_DetallesServicioReparto int,
+precioTotal_DetallesServicioReparto int,
+fotoNotaResivo_DetallesServicioReparto varchar(30)
 );
 /* FK -> id_ServicioReparto -> servicioReparto_tb */
 alter table detallesServicioReparto_tb ADD foreign key (id_DetallesServicioReparto) references servicioReparto_tb (id_ServicioReparto);
 
 create table ubicacion_tb(
 id_Ubicacion int primary key auto_increment not null,
-longitud_Ubicacion int,
-latitud_Ubicacion int
+longitudUsuario_Ubicacion int,
+latitudLatitud_Ubicacion int,
+longitudRepartidor_Ubicacion int,
+latitudRepartidor_Ubicacion int
 );
