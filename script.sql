@@ -3,53 +3,68 @@
 * Tabla repartidor
 * Tabla servicio Reparto
 * Tabla Detalles Servicio Reparto
-* Tabla ubicaciones
+* Tabla ubicacion
 */
 create database appreparto_bd;
 
 create table usuario_tb (
-id_tbUsuario int primary key auto_increment not null
-nombreUsuario_tbUsuario varchar(20) not null,
-password_tbUsuario varchar(10) not null,
-nombre_tbUsuario varchar(30) not null,
-apellido_tbUsuario varchar(30) not null,
-numTelefonico_tbUsuario int not null,
-correo_tbUsuario varchar(30) not null,
-telefono_tbUsuario int not null,
-sexo_tbUsuario varchar(30) not null
-/* FK -> solicitudPedido -> id_Pedido */
+id_Usuario int primary key auto_increment not null,
+nombreUsuario_Usuario varchar(30) not null,
+password_Usuario varchar(10) not null,
+nombre_Usuario varchar(30) not null,
+apellido_Usuario varchar(30) not null,
+numTelefonico_Usuario varchar(10) not null,
+correo_Usuario varchar(30) not null,
+sexo_Usuario varchar(6) not null,
+fechaNacimiento_Usuario date not null,
+fotoPerfil_Usuario varchar(100),
+mensajeEstado_Uusuario varchar(100)
 );
 
 create table repartidor_tb (
-id_tbRepartidor int primary key auto_increment not null
-nombreUsuario_tbRepartidor varchar(20) not null,
-apellido_tbRepartidor varchar(30) not null,
-numTelefonico_tbRepartidor int not null,
-modeloMotocicleta_tbRepartido int not null,
-correo_tbRepartidor varchar(30),
-placa_tbRepartidor varchar(30),
-licencia_tbRepartidor varchar(30),
-edad_tbRepartidor int,
-sexo_tbRepartidor varchar(30)
+id_Repartidor int primary key auto_increment not null,
+nombreUsuario_Repartidor varchar(20) not null,
+password_Repartidor varchar(10) not null,
+nombre_Repartidor varchar(30) not null,
+apellido_Repartidor varchar(30) not null,
+numTelefonico_Repartidor int not null,
+correo_Repartidor varchar(30),
+sexo_Repartidor varchar(6) not null,
+fechaNacimiento_Repartidor date not null,
+fotoPerfil_Repartidor varchar(100),
+mensajeEstado_Repartidor varchar(100),
+modeloMotocicleta_Repartido varchar(30) not null,
+placa_Repartidor varchar(30) not null,
+licencia_Repartidor varchar(30) not null
 );
 
 
 create table servicioReparto_tb (
-id_Pedido int primary key auto_increment not null
-fecha_Pedido varchar(30),
-horaInicio_Pedido varchar(30),
-horaFin_Pedido varchar(30),
-Botoninicio_Pedido boolean,
-Botonfin_Pedido boolean
+id_ServicioReparto int primary key auto_increment not null,
+fecha_ServicioReparto date not null,
+horaInicio_ServicioReparto time not null,
+horaFin_ServicioReparto time not null,
+inicio_ServicioReparto boolean,
+fin_ServicioReparto boolean
 );
+/* FK -> id_Usuario -> usuario_tb */
+alter table servicioReparto_tb ADD foreign key (id_ServicioReparto) references usuario_tb (id_Usuario);
+/* FK -> id_Repartidor -> repartidor_tb */
+alter table servicioReparto_tb ADD foreign key (id_ServicioReparto) references repartidor_tb (id_Repartidor);
 
-create table DetallesServicioReparto_tb(
-id_DetallesPedido int primary key auto_increment not null
 
-/*FK-> id_Pedido*/
+create table detallesServicioReparto_tb(
+id_DetallesServicioReparto int primary key auto_increment not null,
+ubicacionDestino_DetallesServicioReparto varchar(30),
+ubicacionFinal_DetallesServicioReparto varchar(30),
+mensajeDetalleDelPedido_DetallesServicioReparto varchar(100),
+calificacionRepartidor int
 );
+/* FK -> id_ServicioReparto -> servicioReparto_tb */
+alter table detallesServicioReparto_tb ADD foreign key (id_DetallesServicioReparto) references servicioReparto_tb (id_ServicioReparto);
 
-create table ubicaciones_tb(
-id_tbUbicaciones int primary key auto_increment not null
+create table ubicacion_tb(
+id_Ubicacion int primary key auto_increment not null,
+longitud_Ubicacion int,
+latitud_Ubicacion int
 );
-
