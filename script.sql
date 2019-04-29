@@ -5,6 +5,26 @@
 * Tabla Detalles Servicio Reparto
 * Tabla ubicacion
 */
+
+
+/************
+* Enunciado *
+*************
+Se requiere desarrollar un software para agilizar el servicio de reparto donde los usuarios solicitan un servicio,
+le aparecerá una lista de los repartidores donde podrá elegir de los que están disponibles y los que están atendiendo
+otro servicio están como ocupados y no se mostrarán.
+El usuario podrá visualizar el perfil del repartidor que eligió con los siguientes datos nombre, apellido, sexo, foto, edad, mensaje de descripción y
+promedio de calificación de como usuario.
+El usuario introduce la ubicación de destino donde el repartidor ordenara el pedido y la ubicación donde el repartidor llevará como destino el pedido,
+como también enviará un mensaje detallado de lo que abarcara su pedido.
+El repartidor podrá visualizar el  perfil del usuario que lo eligió con los datos nombre, apellido, sexo, foto, edad, mensaje de descripción y
+promedio de calificación de como usuario, el recibe esa información cambia el estado del servicio en iniciado, se dirige a realizar el pedido, el repartidor indica su comisión dependiendo de la distancia y la hora del dia, costo total de pedido, costo total del servicio, se cobrará una comisión sobre el uso de la aplicación, sube una foto de la factura del establecimiento al usuario, se dirige a entrar el pedido.
+El usuario recibe esa información paga el precio total del pedido más la comisión del repartidor y la aplicación.
+El  usuario como también el repartidor se califican con su desempeño dado.
+El repartidor cambia el estado del servicio como concluido.
+Si hubiera un problema con alguno, ambos podrán reportar y enviar un mensaje de lo acontecido.
+*/
+
 create database appreparto_bd;
 
 create table usuario_tb (
