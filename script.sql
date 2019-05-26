@@ -1,12 +1,3 @@
-/*
-* Tabla usuario
-* Tabla repartidor
-* Tabla servicio Reparto
-* Tabla Detalles Servicio Reparto
-* Tabla ubicacion
-*/
-
-
 /************
 * Enunciado *
 *************
@@ -23,6 +14,115 @@ El usuario recibe esa información paga el precio total del pedido más la comis
 El  usuario como también el repartidor se califican con su desempeño dado.
 El repartidor cambia el estado del servicio como concluido.
 Si hubiera un problema con alguno, ambos podrán reportar y enviar un mensaje de lo acontecido.
+*/
+
+/** Tablas **
+* Usuario
+* Repartidor
+* DatosPersonales
+* ServicioReparto
+* DetallesServicioReparto
+* VehiculoRepartidor
+* EstadoServicio
+* EstadoRepartidor
+* ComisionSistema
+* ComisionRepartidor
+* CalificacionRepartidor
+* CalificacionUsuario
+* Productos
+*/
+
+/** Usuario **
+* ID_Usuario
+* Username
+* Password
+* Correo
+* NumTelefonico
+*/
+
+/** Repartidor **
+* ID_Repartidor
+* Username
+* Password
+* Correo
+* NumTelefonico
+*/
+
+/** DatosPersonales **
+* ID_DatosPersonales
+* PrimerNombre
+* SegundoNombre
+* ApellidoPaterno
+* ApellidoMaterno
+* FechaDeNacimiento
+* Localidad
+* Sexo
+* FotoPerfil
+* MensajeEstado
+*/
+
+/** ServicioReparto NO_LISTO **
+* ID_ServicioReparto
+* UbicacionDestino
+* UbicacionRecepcion
+* Fecha
+* CostoTotal
+* TiempoTranscurrido
+*/
+
+/** ServicioRepartoDetalles NO_LISTO **
+* ID_ServicioRepartoDetalles
+*
+*/
+
+/** VehiculoRepartidor **
+* ID_VehiculoRepartidor
+* Tipo
+* Marca
+* Modelo
+* Anio
+* Color
+* Placa
+*/
+
+/** ComisionSistema **
+* ID_ComisionSistema
+* DistanciaCorta
+* DistanciaMedia
+* DistanciaLarga
+* TiempoDia
+* TiempoNoche
+*/
+
+/** ComisionRepartidor **
+* ID_ComisionRepartidor
+* DistanciaCorta
+* DistanciaMedia
+* DistanciaLarga
+* TiempoDia
+* TiempoNoche
+*/
+
+/** CalificacionRepartidor
+* ID_CalificacionRepartidor
+
+*/
+
+
+
+
+
+* CalificacionUsuario
+* Productos
+
+
+
+
+/***************************
+****************************
+******** INCERVIBLE  *******
+****************************
+****************************
 */
 
 create database appreparto_bd;
@@ -85,11 +185,3 @@ fotoNotaResivo_DetallesServicioReparto varchar(30)
 );
 /* FK -> id_ServicioReparto -> servicioReparto_tb */
 alter table detallesServicioReparto_tb ADD foreign key (id_DetallesServicioReparto) references servicioReparto_tb (id_ServicioReparto);
-
-create table ubicacion_tb(
-id_Ubicacion int primary key auto_increment not null,
-longitudUsuario_Ubicacion int,
-latitudLatitud_Ubicacion int,
-longitudRepartidor_Ubicacion int,
-latitudRepartidor_Ubicacion int
-);
