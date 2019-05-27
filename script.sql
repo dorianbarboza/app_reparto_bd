@@ -23,13 +23,12 @@ Si hubiera un problema con alguno, ambos podrán reportar y enviar un mensaje de
 * ServicioReparto
 * DetallesServicioReparto
 * VehiculoRepartidor
-* EstadoServicio
-* EstadoRepartidor
+* EstadoServicio *
+* EstadoRepartidor *
 * ComisionSistema
 * ComisionRepartidor
-* CalificacionRepartidor
-* CalificacionUsuario
-* Productos
+* CalificacionUserRepartidor *
+* Productos *
 */
 
 /** Usuario **
@@ -103,19 +102,10 @@ Si hubiera un problema con alguno, ambos podrán reportar y enviar un mensaje de
 * TiempoNoche
 */
 
-/** CalificacionRepartidor
-* ID_CalificacionRepartidor
+/** CalificacionUserRepartidor
+* ID_CalificacionUserRepartidor
 
 */
-
-
-
-
-
-* CalificacionUsuario
-* Productos
-
-
 
 
 /***************************
