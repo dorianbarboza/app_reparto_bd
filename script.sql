@@ -16,7 +16,7 @@ El repartidor cambia el estado del servicio como concluido.
 Si hubiera un problema con alguno, ambos podrán reportar y enviar un mensaje de lo acontecido.
 */
 
-/** Tablas **
+/** Tablas ** 
 * Usuario
 * Repartidor
 * DatosPersonales
@@ -27,27 +27,27 @@ Si hubiera un problema con alguno, ambos podrán reportar y enviar un mensaje de
 * EstadoRepartidor *
 * ComisionSistema
 * ComisionRepartidor
-* CalificacionUserRepartidor *
-* Productos *
+* Calificacion 
+* Productos 
 */
 
-/** Usuario **
+/** Usuario ** LISTO
 * ID_Usuario
-* Username
-* Password
-* Correo
-* NumTelefonico
+* Username_Usuario
+* Password_Usuario
+* Correo_Usuario
+* NumTelefonico_Usuario
 */
 
-/** Repartidor **
+/** Repartidor ** LISTO
 * ID_Repartidor
-* Username
-* Password
-* Correo
-* NumTelefonico
+* Username_Repartidor
+* Password_Repartidor
+* Correo_Repartidor
+* NumTelefonico_Repartidor
 */
 
-/** DatosPersonales **
+/** DatosPersonales ** LISTO
 * ID_DatosPersonales
 * PrimerNombre
 * SegundoNombre
@@ -74,7 +74,7 @@ Si hubiera un problema con alguno, ambos podrán reportar y enviar un mensaje de
 *
 */
 
-/** VehiculoRepartidor **
+/** VehiculoRepartidor ** LISTO
 * ID_VehiculoRepartidor
 * Tipo
 * Marca
@@ -84,28 +84,56 @@ Si hubiera un problema con alguno, ambos podrán reportar y enviar un mensaje de
 * Placa
 */
 
-/** ComisionSistema **
+/** ComisionSistema ** LISTO
 * ID_ComisionSistema
-* DistanciaCorta
-* DistanciaMedia
-* DistanciaLarga
-* TiempoDia
-* TiempoNoche
+* DistanciaCorta_Sistema
+* DistanciaMedia_Sistema
+* DistanciaLarga_Sistema
+* TiempoDia_Sistema
+* TiempoNoche_Sistema
 */
 
-/** ComisionRepartidor **
+/** ComisionRepartidor ** LISTO
 * ID_ComisionRepartidor
-* DistanciaCorta
-* DistanciaMedia
-* DistanciaLarga
-* TiempoDia
-* TiempoNoche
+* DistanciaCorta_Repartidor
+* DistanciaMedia_Repartidor
+* DistanciaLarga_Repartidor
+* TiempoDia_Repartidor
+* TiempoNoche_Repartidor
 */
 
-/** CalificacionUserRepartidor
-* ID_CalificacionUserRepartidor
-
+/** Calificacion ** LISTO 
+* ID_Calificacion
+* Calif_UserToRepart
+* Calif_RepartToUSer
 */
+
+/** Producto ** LISTO
+* ID_Producto
+* Nombre_Producto
+* Descripcion_Prodcuto
+* Precio_Producto
+* FotoFactura_Producto
+ */
+
+/** EstadoServicio ** LISTO
+* ID_EstadoServicio
+* EstadoActualServicio
+*/
+
+/** EstadoRepartidor ** LISTO
+* ID_EstadoRepartidor
+* EstadoActualRepartidr
+*/
+
+
+
+
+
+
+
+
+
 
 
 /***************************
