@@ -159,13 +159,115 @@ VALUES ('1DR', 'Dia', '07:00:00', '22:59:00', 10);
 INSERT INTO ComisionTiempoRepartidor (ID_ComisionTiempoRepartidor, TiempoRep, Hora_Inicio_TiempoRep, Hora_Fin_TiempoRep, Precio_TiempoRep) 
 VALUES ('2NR', 'Noche', '23:00:00', '06:59:00', 20);
 
+/* Tabla ServicioReparto */
+CREATE TABLE ServicioReparto(
+ID_ServicioReparto varchar(30) primary key not null,
+CalleProducU varchar(30),
+NumProducU int,
+ColoniaProducU varchar(30),
+CalleDestino varchar(30),
+NumDestino int,
+ColoniaDestino varchar(30),
+Fecha_Servicio date,
+Hora_Servicio time,
+TiempoTranscurrido time,
+CostoTotal int
+/* FK ID_Cliente */
+/* FK ID_Repartidor */
+/* FK ID_EstadoServicio */
+/* FK ID_ComisionDistanciaSistema */
+/* FK ID_ComisionDistanciaRepartidor */
+/* FK ID_ComisionTiempoSistema */
+/* FK ID_ComisionTiempoRepartidor */
+);
+
+INSERT INTO ServicioReparto (ID_ServicioReparto, CalleProducU, NumProducU, ColoniaProducU, CalleDestino, NumDestino, ColoniaDestino, Fecha_Servicio, Hora_Servicio, TiempoTranscurrido, CostoTotal) 
+VALUES ('SR01', 'Venustiano Carranza', 390, 'Venustiano Carranza', 'Heroes', 110, 'Centro', '2019-06-04', '14:00:00', '01:34:02', 68);
+
+INSERT INTO ServicioReparto (ID_ServicioReparto, CalleProducU, NumProducU, ColoniaProducU, CalleDestino, NumDestino, ColoniaDestino, Fecha_Servicio, Hora_Servicio, TiempoTranscurrido, CostoTotal) 
+VALUES ('SR02', 'Andres Quintana Roo', 200, 'Centro', 'Maxuxac', 500, 'Proterritorio', '2019-06-04', '17:00:00', '01:20:50', 161);
+
+INSERT INTO ServicioReparto (ID_ServicioReparto, CalleProducU, NumProducU, ColoniaProducU, CalleDestino, NumDestino, ColoniaDestino, Fecha_Servicio, Hora_Servicio, TiempoTranscurrido, CostoTotal) 
+VALUES ('SR03', 'Zaragoza', 156, 'Centro', 'Erick Paolo', 50, 'Solidaridad', '2019-06-04', '01:35:00', '01:05:02', 131);
+
+/* Tabla CalificacionesAusuarios */
+CREATE TABLE CalificacionesAusuarios(
+/* FK ID_Servicio */
+/* FK ID_CalifARepartidor */
+/* FK ID_CalifACliente */
+);
+
+/* Tabla Calificacion */
+CREATE TABLE Calificacion(
+ID_Calificacion varchar(30) primary key not null,
+NombreCalif varchar(30),
+Puntaje int
+);
+
+INSERT INTO Calificacion (ID_Calificacion, NombreCalif, Puntaje) 
+VALUES ('CCM', 'Mal', 1);
+
+INSERT INTO Calificacion (ID_Calificacion, NombreCalif, Puntaje) 
+VALUES ('CCR', 'Regular', 2);
+
+INSERT INTO Calificacion (ID_Calificacion, NombreCalif, Puntaje) 
+VALUES ('CCB', 'Bueno', 3);
+
+INSERT INTO Calificacion (ID_Calificacion, NombreCalif, Puntaje) 
+VALUES ('CCMB', 'Muy Bueno', 4);
+
+INSERT INTO Calificacion (ID_Calificacion, NombreCalif, Puntaje) 
+VALUES ('CCE', 'Excelente', 5);
 
 
+/* Tabla EstadoServicio */
+CREATE TABLE EstadoServicio(
+ID_EstadoServicio varchar(30) primary key not null,
+EstadoActualServicio varchar(30)
+);
 
+INSERT INTO EstadoServicio (ID_EstadoServicio, EstadoActualServicio) 
+VALUES ('EASI', 'Iniciado');
 
+INSERT INTO EstadoServicio (ID_EstadoServicio, EstadoActualServicio) 
+VALUES ('EASB', 'Buscando producto');
 
+INSERT INTO EstadoServicio (ID_EstadoServicio, EstadoActualServicio) 
+VALUES ('EASE', 'Entregando producto');
 
+INSERT INTO EstadoServicio (ID_EstadoServicio, EstadoActualServicio) 
+VALUES ('EASF', 'Finalizado');
 
+/* Tabla EstadoRepartidor */
+CREATE TABLE EstadoRepartidor(
+ID_EstadoRepartidor varchar(30) primary key not null,
+Estado varchar(30)
+);
+
+INSERT INTO EstadoRepartidor (ID_EstadoRepartidor, Estado) 
+VALUES ('ERD', 'Disponible');
+
+INSERT INTO EstadoRepartidor (ID_EstadoRepartidor, Estado) 
+VALUES ('ERO', 'Ocupado');
+
+/* Tabla ServicioRepartoDetalles */
+CREATE TABLE ServicioRepartoDetalles(
+ID_ServicioRepartoDetalles varchar(30) primary key not null
+/* FK ID_ServicioReparto */
+/* FK ID_Producto */
+);
+
+INSERT INTO ServicioRepartoDetalles (ID_ServicioRepartoDetalles) 
+VALUES ('SRD01');
+
+INSERT INTO ServicioRepartoDetalles (ID_ServicioRepartoDetalles) 
+VALUES ('SRD02');
+
+INSERT INTO ServicioRepartoDetalles (ID_ServicioRepartoDetalles) 
+VALUES ('SRD03');
+
+INSERT INTO ServicioRepartoDetalles (ID_ServicioRepartoDetalles) 
+VALUES ('SRD04');
 
 
 
