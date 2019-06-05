@@ -1,205 +1,80 @@
-/************
-* Enunciado *
-*************
-Se requiere desarrollar un software para agilizar el servicio de reparto donde los usuarios solicitan un servicio,
-le aparecerá una lista de los repartidores donde podrá elegir de los que están disponibles y los que están atendiendo
-otro servicio están como ocupados y no se mostrarán.
-El usuario podrá visualizar el perfil del repartidor que eligió con los siguientes datos nombre, apellido, sexo, foto, edad, mensaje de descripción y
-promedio de calificación de como usuario.
-El usuario introduce la ubicación de destino donde el repartidor ordenara el pedido y la ubicación donde el repartidor llevará como destino el pedido,
-como también enviará un mensaje detallado de lo que abarcara su pedido.
-El repartidor podrá visualizar el  perfil del usuario que lo eligió con los datos nombre, apellido, sexo, foto, edad, mensaje de descripción y
-promedio de calificación de como usuario, el recibe esa información cambia el estado del servicio en iniciado, se dirige a realizar el pedido, el repartidor indica su comisión dependiendo de la distancia y la hora del dia, costo total de pedido, costo total del servicio, se cobrará una comisión sobre el uso de la aplicación, sube una foto de la factura del establecimiento al usuario, se dirige a entrar el pedido.
-El usuario recibe esa información paga el precio total del pedido más la comisión del repartidor y la aplicación.
-El  usuario como también el repartidor se califican con su desempeño dado.
-El repartidor cambia el estado del servicio como concluido.
-Si hubiera un problema con alguno, ambos podrán reportar y enviar un mensaje de lo acontecido.
-*/
+CREATE DATABASE ServicioReparto_bd;
 
-/** Tablas ** 
-* Usuario
-* Repartidor
-* DatosPersonales
-* ServicioReparto
-* DetallesServicioReparto
-* VehiculoRepartidor
-* EstadoServicio *
-* EstadoRepartidor *
-* ComisionSistema
-* ComisionRepartidor
-* Calificacion 
-* Productos 
-*/
-
-/** Usuario ** LISTO
-* ID_Usuario
-* Username_Usuario
-* Password_Usuario
-* Correo_Usuario
-* NumTelefonico_Usuario
-*/
-
-/** Repartidor ** LISTO
-* ID_Repartidor
-* Username_Repartidor
-* Password_Repartidor
-* Correo_Repartidor
-* NumTelefonico_Repartidor
-*/
-
-/** DatosPersonales ** LISTO
-* ID_DatosPersonales
-* PrimerNombre
-* SegundoNombre
-* ApellidoPaterno
-* ApellidoMaterno
-* FechaDeNacimiento
-* Localidad
-* Sexo
-* FotoPerfil
-* MensajeEstado
-*/
-
-/** ServicioReparto NO_LISTO **
-* ID_ServicioReparto
-* UbicacionDestino
-* UbicacionRecepcion
-* Fecha
-* CostoTotal
-* TiempoTranscurrido
-*/
-
-/** ServicioRepartoDetalles NO_LISTO **
-* ID_ServicioRepartoDetalles
-*
-*/
-
-/** VehiculoRepartidor ** LISTO
-* ID_VehiculoRepartidor
-* Tipo
-* Marca
-* Modelo
-* Anio
-* Color
-* Placa
-*/
-
-/** ComisionSistema ** LISTO
-* ID_ComisionSistema
-* DistanciaCorta_Sistema
-* DistanciaMedia_Sistema
-* DistanciaLarga_Sistema
-* TiempoDia_Sistema
-* TiempoNoche_Sistema
-*/
-
-/** ComisionRepartidor ** LISTO
-* ID_ComisionRepartidor
-* DistanciaCorta_Repartidor
-* DistanciaMedia_Repartidor
-* DistanciaLarga_Repartidor
-* TiempoDia_Repartidor
-* TiempoNoche_Repartidor
-*/
-
-/** Calificacion ** LISTO 
-* ID_Calificacion
-* Calif_UserToRepart
-* Calif_RepartToUSer
-*/
-
-/** Producto ** LISTO
-* ID_Producto
-* Nombre_Producto
-* Descripcion_Prodcuto
-* Precio_Producto
-* FotoFactura_Producto
- */
-
-/** EstadoServicio ** LISTO
-* ID_EstadoServicio
-* EstadoActualServicio
-*/
-
-/** EstadoRepartidor ** LISTO
-* ID_EstadoRepartidor
-* EstadoActualRepartidr
-*/
-
-
-
-
-
-
-
-
-
-
-
-/***************************
-****************************
-******** INCERVIBLE  *******
-****************************
-****************************
-*/
-
-create database appreparto_bd;
-
-create table usuario_tb (
-id_Usuario int primary key auto_increment not null,
-nombreUsuario_Usuario varchar(30) not null,
-password_Usuario varchar(10) not null,
-nombre_Usuario varchar(30) not null,
-apellido_Usuario varchar(30) not null,
-numTelefonico_Usuario varchar(10) not null,
-correo_Usuario varchar(30) not null,
-sexo_Usuario varchar(6) not null,
-fechaNacimiento_Usuario date not null,
-fotoPerfil_Usuario varchar(100),
-mensajeEstado_Uusuario varchar(100)
+/* Tabla Cliente */
+CREATE TABLE Cliente(
+ID_Cliente varchar(30) primary key not null,
+UsernameC varchar(30),
+PasswordC varchar(30),
+CorreoC varchar(30),
+NumTelefonicoC int,
+PrimerNombreC varchar(30),
+SegundoNombreC varchar(30),
+ApellidoPaternoC varchar(30),
+ApellidoMaternoC varchar(30),
+FechaNaciC date,
+CiudadC varchar(30),
+CodPostalC int,
+SexoC varchar(30),
+FotoPerfilC varchar(30)
 );
 
-create table repartidor_tb (
-id_Repartidor int primary key auto_increment not null,
-nombreUsuario_Repartidor varchar(20) not null,
-password_Repartidor varchar(10) not null,
-nombre_Repartidor varchar(30) not null,
-apellido_Repartidor varchar(30) not null,
-numTelefonico_Repartidor int not null,
-correo_Repartidor varchar(30),
-sexo_Repartidor varchar(6) not null,
-fechaNacimiento_Repartidor date not null,
-fotoPerfil_Repartidor varchar(100),
-mensajeEstado_Repartidor varchar(100),
-modeloMotocicleta_Repartido varchar(30) not null,
-placa_Repartidor varchar(30) not null,
-licencia_Repartidor varchar(30) not null
+INSERT INTO Cliente (ID_Cliente, UsernameC, PasswordC, CorreoC, NumTelefonicoC, PrimerNombreC, SegundoNombreC, ApellidoPaternoC, ApellidoMaternoC, FechaNaciC, CiudadC, CodPostalC, SexoC, FotoPerfilC) 
+VALUES ('C01', 'carlosg', 'jsdhsh', 'carlosgonzales@gmail.com', 9830978678, 'Carlos', 'Miguel', 'Gonzales', 'Perdomo', '1985-04-18', 'Chetumal', '77011', 'Hombre', 'Carlosg.jpg');
+
+INSERT INTO Cliente (ID_Cliente, UsernameC, PasswordC, CorreoC, NumTelefonicoC, PrimerNombreC, SegundoNombreC, ApellidoPaternoC, ApellidoMaternoC, FechaNaciC, CiudadC, CodPostalC, SexoC, FotoPerfilC) 
+VALUES ('C02', 'miguelc', 'djshdjdhg', 'Miguelc@gmail.com', 9837847623, 'Miguel', 'Alejandro', 'Torres', 'Cervantes', '1990-09-17', 'Bacalar', '77000', 'Hombre', 'Miguel.jpg');
+
+INSERT INTO Cliente (ID_Cliente, UsernameC, PasswordC, CorreoC, NumTelefonicoC, PrimerNombreC, SegundoNombreC, ApellidoPaternoC, ApellidoMaternoC, FechaNaciC, CiudadC, CodPostalC, SexoC, FotoPerfilC) 
+VALUES ('C03', 'josemiguel', 'klakdasdsa', 'jmiguel@gmail.com', 9837283783, 'Jose', 'Miguel', 'Novelo', 'Reyes', '1988-03-23', 'Chetumal', '77012', 'Hombre', 'Josemiguel.jpg');
+
+/* Tabla Repartidor */
+CREATE TABLE Repartidor(
+ID_Repartidor varchar(30) primary key not null,
+UsernameR varchar(30),
+PasswordR varchar(30),
+CorreoR varchar(30),
+NumTelefonicoR int,
+PrimerNombreR varchar(30),
+SegundoNombreR varchar(30),
+ApellidoPaternoR varchar(30),
+ApellidoMaternoR varchar(30),
+FechaNaciR date,
+CiudadR varchar(30),
+CodPostalR int,
+SexoR varchar(30),
+FotoPerfilR varchar(30)
+/* FK ID_VehiculoRepartidor */
+/* FK ID_EstadoRepartidor */
 );
 
+INSERT INTO Repartidor (ID_Repartidor, UsernameR, PasswordR, CorreoR, NumTelefonicoR, PrimerNombreR, SegundoNombreR, ApellidoPaternoR, ApellidoMaternoR, FechaNaciR, CiudadR, CodPostalR, SexoR, FotoPerfilR) 
+VALUES ('R01', 'robertom', 'jfhsjdhf', 'robertom@gmail.com', 983789875, 'Roberto', 'Oscar', 'Mendez', 'Lopez', '1993-05-23', 'Chetumal', '77014', 'Hombre', 'Roberto.jpg');
 
-create table servicioReparto_tb (
-id_ServicioReparto int primary key auto_increment not null,
-fecha_ServicioReparto date not null,
-horaInicio_ServicioReparto time not null,
-horaFin_ServicioReparto time not null,
-inicio_ServicioReparto boolean,
-fin_ServicioReparto boolean
-);
-/* FK -> id_Usuario -> usuario_tb */
-alter table servicioReparto_tb ADD foreign key (id_ServicioReparto) references usuario_tb (id_Usuario);
-/* FK -> id_Repartidor -> repartidor_tb */
-alter table servicioReparto_tb ADD foreign key (id_ServicioReparto) references repartidor_tb (id_Repartidor);
+INSERT INTO Repartidor (ID_Repartidor, UsernameR, PasswordR, CorreoR, NumTelefonicoR, PrimerNombreR, SegundoNombreR, ApellidoPaternoR, ApellidoMaternoR, FechaNaciR, CiudadR, CodPostalR, SexoR, FotoPerfilR) 
+VALUES ('R02', 'alejandra', 'hgdjshdg', 'alejandratorres@gmail.com', 9837826378, 'Alejandra', 'Maria', 'Lopez', 'Torres', '1994-04-15', 'Calderitas', '77016', 'Mujer', 'Alejandra.jpg');
+
+INSERT INTO Repartidor (ID_Repartidor, UsernameR, PasswordR, CorreoR, NumTelefonicoR, PrimerNombreR, SegundoNombreR, ApellidoPaternoR, ApellidoMaternoR, FechaNaciR, CiudadR, CodPostalR, SexoR, FotoPerfilR) 
+VALUES ('R03', 'manuelt', 'dskdskdsd', 'manuelt@gmail.com', 9839876735, 'Manuel', 'Alejandro', 'Tejero', 'Salazar', '1996-04-30', 'Chetumal', '77015', 'Hombre', 'Manuel.jpg');
 
 
-create table detallesServicioReparto_tb(
-id_DetallesServicioReparto int primary key auto_increment not null,
-ubicacionDestino_DetallesServicioReparto varchar(30),
-ubicacionFinal_DetallesServicioReparto varchar(30),
-mensajeDetalleDelPedido_DetallesServicioReparto varchar(100),
-calificacionRepartidor_DetallesServicioReparto int,
-comisionRepartidor_DetallesServicioReparto int,
-precioTotal_DetallesServicioReparto int,
-fotoNotaResivo_DetallesServicioReparto varchar(30)
-);
-/* FK -> id_ServicioReparto -> servicioReparto_tb */
-alter table detallesServicioReparto_tb ADD foreign key (id_DetallesServicioReparto) references servicioReparto_tb (id_ServicioReparto);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
