@@ -56,17 +56,108 @@ VALUES ('R02', 'alejandra', 'hgdjshdg', 'alejandratorres@gmail.com', 9837826378,
 INSERT INTO Repartidor (ID_Repartidor, UsernameR, PasswordR, CorreoR, NumTelefonicoR, PrimerNombreR, SegundoNombreR, ApellidoPaternoR, ApellidoMaternoR, FechaNaciR, CiudadR, CodPostalR, SexoR, FotoPerfilR) 
 VALUES ('R03', 'manuelt', 'dskdskdsd', 'manuelt@gmail.com', 9839876735, 'Manuel', 'Alejandro', 'Tejero', 'Salazar', '1996-04-30', 'Chetumal', '77015', 'Hombre', 'Manuel.jpg');
 
+/* Tabla VehiculoRepartidor */
+CREATE TABLE VehiculoRepartidor(
+ID_VehiculoRepartidor varchar(30) primary key not null,
+Tipo varchar(30),
+Marca varchar(30),
+Modelo varchar(30),
+Anio int,
+Color varchar(30),
+Placa varchar(30)
+);
 
+INSERT INTO VehiculoRepartidor (ID_VehiculoRepartidor, Tipo, Marca, Modelo, Anio, Color, Placa) 
+VALUES ('VH01', 'Motocicleta', 'Yamaha', 'Aerox', '2017', 'Rojo', 'JDF342');
 
+INSERT INTO VehiculoRepartidor (ID_VehiculoRepartidor, Tipo, Marca, Modelo, Anio, Color, Placa) 
+VALUES ('VH02', 'Motocicleta', 'Yamaha', 'Cruz', '2016', 'Blanca', 'JFH434');
 
+INSERT INTO VehiculoRepartidor (ID_VehiculoRepartidor, Tipo, Marca, Modelo, Anio, Color, Placa) 
+VALUES ('VH03', 'Motocicleta', 'Italika', 'V3000', '2019', 'Rojo', 'GHF456');
 
+/* Tabla Producto */
+CREATE TABLE Producto(
+ID_Producto varchar(30) primary key not null,
+Nombre_Producto varchar(30),
+Descripcion_Producto varchar(30),
+Precio_Producto decimal,
+FotoFactura_Producto varchar(30)
+);
 
+INSERT INTO Producto (ID_Producto, Nombre_Producto, Descripcion_Producto, Precio_Producto, FotoFactura_Producto) 
+VALUES ('P01', 'Producto 1', 'Hamburguesa hawwaiana', 55, 'Factura.jpg');
 
+INSERT INTO Producto (ID_Producto, Nombre_Producto, Descripcion_Producto, Precio_Producto, FotoFactura_Producto) 
+VALUES ('P02', 'Producto 1', 'Pizza al pastor', 106, 'Factura.jpg');
 
+INSERT INTO Producto (ID_Producto, Nombre_Producto, Descripcion_Producto, Precio_Producto, FotoFactura_Producto) 
+VALUES ('P03', 'Producto 2', 'Coca cola 2,5L', 25, 'Factura.jpg');
 
+INSERT INTO Producto (ID_Producto, Nombre_Producto, Descripcion_Producto, Precio_Producto, FotoFactura_Producto) 
+VALUES ('P04', 'Producto 1', '3 empanadas de queso', 90, 'Factura.jpg');
 
+/* Tabla ComisionDistanciaSistema */
+CREATE TABLE ComisionDistanciaSistema(
+ID_ComisionDistanciaSistema varchar(30) primary key not null,
+Distancia_Sistema varchar(30),
+Precio_Sistema int
+);
 
+INSERT INTO ComisionDistanciaSistema (ID_ComisionDistanciaSistema, Distancia_Sistema, Precio_Sistema) 
+VALUES ('1CS', 'Corta', 2);
 
+INSERT INTO ComisionDistanciaSistema (ID_ComisionDistanciaSistema, Distancia_Sistema, Precio_Sistema) 
+VALUES ('2MS', 'Media', 4);
+
+INSERT INTO ComisionDistanciaSistema (ID_ComisionDistanciaSistema, Distancia_Sistema, Precio_Sistema) 
+VALUES ('3LS', 'Larga', 6);
+
+/* Tabla ComisionDistanciaRepartidor */
+CREATE TABLE ComisionDistanciaRepartidor(
+ID_ComisionDistanciaRepartidor varchar(30) primary key not null,
+Distancia_Repartidor varchar(30),
+Precio_Repartidor int
+);
+
+INSERT INTO ComisionDistanciaRepartidor (ID_ComisionDistanciaRepartidor, Distancia_Repartidor, Precio_Repartidor) 
+VALUES ('1CR', 'Corta', '10');
+
+INSERT INTO ComisionDistanciaRepartidor (ID_ComisionDistanciaRepartidor, Distancia_Repartidor, Precio_Repartidor) 
+VALUES ('2MR', 'Media', '15');
+
+INSERT INTO ComisionDistanciaRepartidor (ID_ComisionDistanciaRepartidor, Distancia_Repartidor, Precio_Repartidor) 
+VALUES ('3LR', 'Larga', '20');
+
+/* Tabla ComisionTiempoSistema */
+CREATE TABLE ComisionTiempoSistema(
+ID_ComisionTiempoSistema varchar(30) primary key not null,
+TiempoSis varchar(30),
+Hora_Inicio_TiempoSis time,
+Hora_Fin_TiempoSis time,
+Precio_TiempoSis int
+);
+
+INSERT INTO ComisionTiempoSistema (ID_ComisionTiempoSistema, TiempoSis, Hora_Inicio_TiempoSis, Hora_Fin_TiempoSis, Precio_TiempoSis) 
+VALUES ('1DS', 'Dia', '07:00:00', '22:59:00', 1);
+
+INSERT INTO ComisionTiempoSistema (ID_ComisionTiempoSistema, TiempoSis, Hora_Inicio_TiempoSis, Hora_Fin_TiempoSis, Precio_TiempoSis) 
+VALUES ('2NS', 'Noche', '23:00:00', '06:59:00', 2);
+
+/* Tabla ComisionTiempoRepartidor */
+CREATE TABLE ComisionTiempoRepartidor(
+ID_ComisionTiempoRepartidor varchar(30) primary key not null,
+TiempoRep varchar(30),
+Hora_Inicio_TiempoRep time,
+Hora_Fin_TiempoRep time,
+Precio_TiempoRep int
+);
+
+INSERT INTO ComisionTiempoRepartidor (ID_ComisionTiempoRepartidor, TiempoRep, Hora_Inicio_TiempoRep, Hora_Fin_TiempoRep, Precio_TiempoRep) 
+VALUES ('1DR', 'Dia', '07:00:00', '22:59:00', 10);
+
+INSERT INTO ComisionTiempoRepartidor (ID_ComisionTiempoRepartidor, TiempoRep, Hora_Inicio_TiempoRep, Hora_Fin_TiempoRep, Precio_TiempoRep) 
+VALUES ('2NR', 'Noche', '23:00:00', '06:59:00', 20);
 
 
 
